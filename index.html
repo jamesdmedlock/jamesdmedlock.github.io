@@ -36,9 +36,10 @@
                 info.userName.style.backgroundColor = "red";
                 var name = document.getElementById("nameError");
                 name.style.display = "inline";
-                name.innerHTML = "Name must be at least six characters";
+                name.innerHTML = "Name must be at least six characters long.";
 
             }
+
 
             if (info.phone.value == ""){
                 valid = false;
@@ -52,17 +53,16 @@
                 valid = true;
             }
 
-                else{(
-                    valid = false;
-                    info.phone.style.backgroundColor = "red";
-                    var number = document.getElementById("phoneError");
-                    number.style.display = "inline";
-                    number.innerHTML = "Please use xxx-xxx-xxxx format for number.";
+            else{
+                valid = false;
+                info.phone.style.backgroundColor = "red";
+                var number = document.getElementById("phoneError");
+                number.style.display = "inline";
+                number.innerHTML = "Please use xxx-xxx-xxxx format for number.";
 
-                )
                 
-
-            }
+                
+}
 
             if (valid){
                 info.submit();
