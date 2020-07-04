@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--James Medlock-->
+    <!--Cheech's Pizza-->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/4ec1c1b9d7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script>
+
+
+        function checkForm(info){
+            var valid = true;
+            var regex = /^\d{3}[-.]\d{3}[-.]\d{4}$/;
+            ///^(1 )?(\([0-9]{3}\) )?([1-9]{3})(\-[1-9]{4})$/;
+            var userNumber = document.getElementById("phoneNumber").value;
+
+
+
+            if (info.userName.value == ""){
+                valid = false;
+
+                info.userName.style.backgroundColor = "red";
+                var name = document.getElementById("nameError");
+                name.style.display = "inline";
+
+            }
+
+            if (info.userName.value.length < 6 && info.userName.value.length > 0){
+                valid = false;
+                info.userName.style.backgroundColor = "red";
+                var name = document.getElementById("nameError");
+                name.style.display = "inline";
+                name.innerHTML = "Name must be at least six characters";
+
+            }
+
+            if (info.phone.value == ""){
+                valid = false;
+
+                info.phone.style.backgroundColor = "red";
+                var number = document.getElementById("phoneError");
+                number.style.display ="inline";
+            }
+
+            if (regex.test(userNumber)){
+                valid = true;
+            }
+
+                else{(
+                    valid = false;
+                    info.phone.style.backgroundColor = "red";
+                    var number = document.getElementById("phoneError");
+                    number.style.display = "inline";
+                    number.innerHTML = "Please use xxx-xxx-xxxx format for number.";
+
+                )
+                
+
+            }
+
+            if (valid){
+                info.submit();
+            }
+
+        }
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class = "banner">
+
+            <img src="pizzaonline2.jpg" class="rounded float-left" alt="...">
+            <img src="rsz_banner.jpg" alt="">
+            <img src="pizzaonline3.jpg" class="rounded float-right" alt="...">
+            <!-- <img src="pizza-online.jpg" alt=""> -->
+                
+            <!-- <img src="pizza-delivery.jpg" alt=""> -->
+
+        </div>
+
+        <div class = "orderPage">
+            <form action="thankyou.html" class="form" id="form">
+                <h2>Choose Your Pizza!</h2>
+
+                <p class="instruct">Please place your order here:</p>
+
+                <input type="text" placeholder="Name" id="userName" class="input userName" name="userName" ><br>
+                <p id="nameError" style="display:none" >Please enter a name. </p>
+
+                <input type="text" placeholder="Phone Number" name="phone" id="phoneNumber" class="input"><br>
+                <p id="phoneError" style="display:none" >Please enter a phone number.</p>
+
+                <select name="pizza" id="pizza" class="input">
+                    <option value="Flyin_Hawaiian">Flyin Hawaiian</option>
+                    <option value="Pipin'_Pepperoni">Pipin' Pepperoni</option>
+                    <option value="Munchies_Meat">Munchies Meat</option>
+                    <option value="Cheech's_Cheesey">Cheech's Cheesy</option>
+                    <option value="Smokin_BBQ">Smokin BBQ</option>
+                </select>
+
+                <select name="quantity" id="quantity" class="input">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select> <br>
+
+                <!--cannot get this to work when I go to addEventListener instead of onclick. Keep getting cannot read property 'addeventlistener' of null-->
+                <input type="button" onclick="checkForm(this.form)" class="button" id="button" value="Submit" /><br>
+
+
+            </form>
+
+            <!--Trying to reset fields after validation. Closest I've came so are to at least not getting errors
+                 <script>
+                document.getElementById("userName", ().addEventListener("focus", ).reset();
+
+            </script> -->
+
+            <!--information page-->
+            <div class="info">
+                <h3>Contact Us</h3>
+                <p>Email for support or inquiries: <a href="mailto:support@cheechspizza.com">support@cheechspizza.com</a></p>
+
+                <h3>High on Life and Higher on Pizza!</h3>
+                <p>Magic Kingdom <br> 1180 Seven Seas Drive <br> Lake Beuna Vista, FL 32830</p>
+
+                <h3>Connect With Us</h3>
+                <i class="fab fa-facebook-square"></i>
+                <i class="fab fa-facebook-messenger"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+
+
+
+
+            </div>
+        </div>
+    </div>
+<script scr="app.js"></script>
+</body>
+</html>
