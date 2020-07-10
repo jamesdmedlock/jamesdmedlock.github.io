@@ -13,28 +13,54 @@
 
     <script>
 
-        var pizzaArray = ["Flyin Hawaiian", "Pipin' Pepperoni", "Munchies Meat", "Cheech's Cheesey", "Smokin BBQ"];
+        var pizzaArray = ["Flyin_Hawaiian", "Pipin'_Pepperoni", "Munchies_Meat", "Cheech's_Cheesey", "Smokin_BBQ"];
 
         function printPizzas(){
             for (var i = 0; i < pizzaArray.length; i++){
-                document.write("<option value=' " + pizzaArray[i] + " '>" + pizzaArray[i] + "</option>");
+                document.write("<option value='" + pizzaArray[i] + "'>" + pizzaArray[i] + "</option>");
             }
 
         }
+
+
+
+
 
         var quantitiesArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
         function printQuantities(){
             for (var k = 0; k < quantitiesArray.length; k++){
-                document.write("<option value=' " + quantitiesArray[k] + " '>" + quantitiesArray[k] + "</option>");
+                document.write("<option value='" + quantitiesArray[k] + "'>" + quantitiesArray[k] +"</option>");
             }
         }
+
+
+                
+        //reset after validation fails - still fails
+        // document.getElementById("userName").addEventListener("focus", function(){
+        //     document.getElementById("userName").style.backgroundColor = "yellow";
+            
+        // });
+
+        // document.getElementById("phoneNumber").addEventListener("click", function(){
+        //     document.getElementById("phoneNumber").style.backgroundColor = "yellow";
+            
+        // });
+
+
+        // function resetPhoneField(this){
+        //     this.style.backgroundColor = "yellow";
+
+        // }
 
 
         function checkForm(info){
             var valid = true;
             var regex = /^\d{3}[-.]\d{3}[-.]\d{4}$/;
             var userNumber = document.getElementById("phoneNumber").value;
+            //Still can't seem to get the color to reset
+            info.userName.style.backgroundColor = "yellow";
+            info.phone.style.backgroundColor = "yellow";
 
 
 
@@ -97,9 +123,7 @@
             <img src="pepperoni-pizza.jpg" class="rounded float-left" alt="...">
             <img src="cheechs_logo.png" class="logo" alt="">
             <img src="cheese-pizza.jpg" class="rounded float-right" alt="...">
-            <!-- <img src="pizza-online.jpg" alt=""> -->
-                
-            <!-- <img src="pizza-delivery.jpg" alt=""> -->
+            
 
         </div>
 
@@ -112,7 +136,8 @@
                 <input type="text" placeholder="Name" id="userName" class="input userName" name="userName" ><br>
                 <p id="nameError" style="display:none" >Please enter a name. </p> <br>
 
-                <input type="text" placeholder="Phone Number" name="phone" id="phoneNumber" class="input"><br>
+                <input type="text" onfocus="resetPhoneField(this)"
+                placeholder="Phone Number" name="phone" id="phoneNumber" class="input"><br>
                 <p id="phoneError" style="display:none" >Please enter a phone number.</p>
                 <select name="pizza" id="pizza" class="input">
                     <script>
@@ -128,16 +153,7 @@
                         printQuantities();
 
                     </script>
-                    <!-- <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option> -->
+                    
                 </select> <br>
 
                 <!--cannot get this to work when I go to addEventListener instead of onclick. Keep getting cannot read property 'addeventlistener' of null-->
