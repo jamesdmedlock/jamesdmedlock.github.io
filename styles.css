@@ -25,9 +25,9 @@ body  {
     
 }
 
-img {
-    height:100%;
-    max-height: 300px;
+img .logo {
+    object-position: center;
+    margin-left: 2%;
     
     
 }
@@ -75,26 +75,37 @@ img {
 
 
 /* thank you page */
+
+
+.thankYouBody{
+    
+    background: url("tasty-pepperoni-pizza-black-concrete-background_79782-102.jpg");
+    background-size: cover;
+    height:100%;
+    font-size: 20px;
+
+}
+
 .thankYou {
-    display: flex;
+    color:white;
     padding-left: 10%;
-    
-}
-
-.summary {
     padding-top: 10%;
-    font-size: 30px;
-
-}
-.thankYou img {
-    
-    object-fit: cover;
-    height: 100%;
-
 }
 
-.pizzaPic, .summary {
-    width:50%;
-
-    justify-content: center;
+.pizzaGuy {
+    float:left;
+    margin-top: 2%;
+    margin-right: 2%;
 }
+
+.youOrdered {
+    margin-top: 3%;
+}
+
+.breakLine {
+    margin-top: 3%;
+}
+
+
+
+

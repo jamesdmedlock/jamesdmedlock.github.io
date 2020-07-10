@@ -4,43 +4,67 @@
 <head>
   <meta charset="utf-8">
   <script>
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    
+    //var pair = vars.split("=");
+    pairsArray = [];
     function printQuery() {
-      var query = window.location.search.substring(1);
-      var vars = query.split("&");
-      
+
+      //var pair = vars.split("=");
       for (var i = 0; i < vars.length; i++) {
         var pair = vars[i].split("=");
-          document.write(pair[1] + "<br />");
+        pairsArray.push(pair[1]);
+          //document.write(pair[0] + ": " + pair[1] + "<br />");
+      
       }
+      document.getElementById("nameOrdered").innerHTML = "Name: " + pairsArray[0];
+      document.getElementById("phoneOrdered").innerHTML = "Phone Number: " + pairsArray[1];
+      document.getElementById('pizzaOrdered').innerHTML = pairsArray[3] + " " + pairsArray[2] + " pizzas.";
+
+      
+
+
+      
+
       
       price = 9.49;
       subTotal = (pair[1] * price);
-      taxRate = .076;
+      taxRate = .076; 
       tax = subTotal * taxRate;
       total = subTotal + tax;
-      document.write("Subtotal:  $" + subTotal.toFixed(2) + "<br> Tax: $" + tax.toFixed(2) + "<br> Total: $" + total.toFixed(2) );
+      document.write("<br>Subtotal:  $" + subTotal.toFixed(2) + "<br> Tax: $" + tax.toFixed(2) + "<br> Total: $" + total.toFixed(2) );
     }
   </script>
   <link rel="stylesheet" href="styles.css" />
   <title></title>
 </head>
 
-<body>
+<body class="thankYouBody">
   <div class="container thankYou">
         
-    <div class="summary">
+    
       <h2>Thank you for your order!</h2>
+
+      <p id="nameOrdered"> </p>
+      <p id="phoneOrdered"> </p>
+      <img class="pizzaGuy" src="pizza-guy.jpg" alt="Man holding fresh-baked pizza">
+      <h3 class="youOrdered">You ordered:</h3>
+      <p id="pizzaOrdered"> </p>
+
+      <p class="breakLine">______________________________________________ </p>
+
+
 
       <script>
         printQuery();
       </script>
 
 
-    </div>
 
-    <div>
-      <img src="pizzaPic.jpg" class="pizzaPic" alt="">
-    </div>
+    
+      <!-- <img src="tasty-pepperoni-pizza-black-concrete-background_79782-102.jpg" class="pizzaPic" alt=""> -->
+    
     
   </div>
 </body>

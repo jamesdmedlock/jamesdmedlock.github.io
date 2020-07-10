@@ -13,11 +13,27 @@
 
     <script>
 
+        var pizzaArray = ["Flyin Hawaiian", "Pipin' Pepperoni", "Munchies Meat", "Cheech's Cheesey", "Smokin BBQ"];
+
+        function printPizzas(){
+            for (var i = 0; i < pizzaArray.length; i++){
+                document.write("<option value=' " + pizzaArray[i] + " '>" + pizzaArray[i] + "</option>");
+            }
+
+        }
+
+        var quantitiesArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+
+        function printQuantities(){
+            for (var k = 0; k < quantitiesArray.length; k++){
+                document.write("<option value=' " + quantitiesArray[k] + " '>" + quantitiesArray[k] + "</option>");
+            }
+        }
+
 
         function checkForm(info){
             var valid = true;
             var regex = /^\d{3}[-.]\d{3}[-.]\d{4}$/;
-            ///^(1 )?(\([0-9]{3}\) )?([1-9]{3})(\-[1-9]{4})$/;
             var userNumber = document.getElementById("phoneNumber").value;
 
 
@@ -59,16 +75,13 @@
                 var number = document.getElementById("phoneError");
                 number.style.display = "inline";
                 number.innerHTML = "Please use xxx-xxx-xxxx format for number.";
-
-                
-                
-}
-
+            }
+            
             if (valid){
                 info.submit();
+                }
             }
-
-        }
+        
 
 
 
@@ -81,9 +94,9 @@
     <div class="container">
         <div class = "banner">
 
-            <img src="pizzaonline2.jpg" class="rounded float-left" alt="...">
-            <img src="rsz_banner.jpg" alt="">
-            <img src="pizzaonline3.jpg" class="rounded float-right" alt="...">
+            <img src="pepperoni-pizza.jpg" class="rounded float-left" alt="...">
+            <img src="cheechs_logo.png" class="logo" alt="">
+            <img src="cheese-pizza.jpg" class="rounded float-right" alt="...">
             <!-- <img src="pizza-online.jpg" alt=""> -->
                 
             <!-- <img src="pizza-delivery.jpg" alt=""> -->
@@ -97,21 +110,25 @@
                 <p class="instruct">Please place your order here:</p>
 
                 <input type="text" placeholder="Name" id="userName" class="input userName" name="userName" ><br>
-                <p id="nameError" style="display:none" >Please enter a name. </p>
+                <p id="nameError" style="display:none" >Please enter a name. </p> <br>
 
                 <input type="text" placeholder="Phone Number" name="phone" id="phoneNumber" class="input"><br>
                 <p id="phoneError" style="display:none" >Please enter a phone number.</p>
-
                 <select name="pizza" id="pizza" class="input">
-                    <option value="Flyin_Hawaiian">Flyin Hawaiian</option>
-                    <option value="Pipin'_Pepperoni">Pipin' Pepperoni</option>
-                    <option value="Munchies_Meat">Munchies Meat</option>
-                    <option value="Cheech's_Cheesey">Cheech's Cheesy</option>
-                    <option value="Smokin_BBQ">Smokin BBQ</option>
+                    <script>
+                        printPizzas();
+                        
+                    </script>
+
                 </select>
+                
 
                 <select name="quantity" id="quantity" class="input">
-                    <option value="1">1</option>
+                    <script>
+                        printQuantities();
+
+                    </script>
+                    <!-- <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
@@ -120,7 +137,7 @@
                     <option value="7">7</option>
                     <option value="8">8</option>
                     <option value="9">9</option>
-                    <option value="10">10</option>
+                    <option value="10">10</option> -->
                 </select> <br>
 
                 <!--cannot get this to work when I go to addEventListener instead of onclick. Keep getting cannot read property 'addeventlistener' of null-->
@@ -155,6 +172,6 @@
             </div>
         </div>
     </div>
-<script scr="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

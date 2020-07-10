@@ -8,10 +8,20 @@
 
 
 
-var clear = document.getElementById("userName");
-clear.addEventListener("focus", reset(){
-    clear.reset();
-});
+// var clear = document.getElementById("userName");
+// clear.addEventListener("focus", reset(){
+//     clear.reset();
+// });
+
+
+// var pizzaArray = ["Flyin_Hawaiian", "Pipin'_Pepperoni", "Munchies_Meat", "Cheech's_Cheesey", "Smokin_BBQ"];
+
+// function printPizzas(){
+//     for (var i = 0; i < pizzaArray.length; i++){
+//         document.write("<option value=' " + pizzaArray[i] +" '>" + pizzaArray[i] + "</option>");
+//     }
+
+// }
 
 
 
